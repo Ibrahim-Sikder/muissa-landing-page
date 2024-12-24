@@ -1,21 +1,45 @@
+:root {
+  --icon-fontSize-sm: 1rem;
+  --icon-fontSize-md: 1.25rem;
+  --icon-fontSize-lg: 1.5rem;
+}
+
+.ql-editor {
+  min-height: 200px;
+}
+
+*:focus-visible {
+  outline: 2px solid transparent;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+
+
+.sectionMargin {
+  margin-top: 50px;
+}
+
+@media only screen and (max-width:768px) {
+  .sectionMargin {
+    margin-top: 20px;
+  }
 }

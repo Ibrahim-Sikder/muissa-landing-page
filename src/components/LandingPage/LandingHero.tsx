@@ -39,7 +39,7 @@ export default function TaxTalksLanding() {
 
 
       {slides.map((slide, index) => (
-        <div key={index} className=" mx-auto px-0 md:px-4  grid lg:grid-cols-2 gap-8 items-center py-14 md:py-16">
+        <div key={index} className=" mx-auto px-0 md:px-4 place-content-center   grid lg:grid-cols-2 gap-8 items-center py-14 md:py-16">
           <div className="space-y-8">
             {/* Red banner */}
             <div className="relative">

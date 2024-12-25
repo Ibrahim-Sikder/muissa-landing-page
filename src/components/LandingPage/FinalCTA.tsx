@@ -22,7 +22,7 @@ const darkTheme = createTheme({
 export default function NotificationPage() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <div className='sectionMargin flex items-center justify-center pb-10 md:py-[10vh]'
+      <div className='sectionMargin flex items-center justify-center pb-10 '
 
       >
         <Container maxWidth="lg">

@@ -29,9 +29,9 @@ export default function NotificationPage() {
           justifyContent: 'center',
           py: {
             xs: '5vh', 
-            sm: '7vh',
-            md: '10vh',
-            lg: '12vh',
+            sm: '5vh',
+            md: '5vh',
+            lg: '5vh',
           },
         }}
 

@@ -13,7 +13,7 @@ const FlipNumber = styled(Box)(({ theme }) => ({
   textAlign: 'center',
   boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
   position: 'relative',
-  border: '2px dashed #D4AF37',
+  border: '2px dashed #fff',
   animation: 'flip 0.6s ease-in-out',
   '@keyframes flip': {
     '0%': {
@@ -84,7 +84,7 @@ export default function ExclusiveDeal() {
         if (newSeconds >= 0) {
           document.querySelectorAll('.flip-number').forEach(el => {
             el.classList.remove('flip')
-            void (el as HTMLElement).offsetWidth // Trigger reflow
+            void (el as HTMLElement).offsetWidth 
             el.classList.add('flip')
           })
           return { ...prev, seconds: newSeconds }

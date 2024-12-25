@@ -23,7 +23,7 @@ export default function ServiceCategories() {
       <div className="max-w-7xl mx-auto">
 
 
-        <div className="grid md:grid-cols-2 gap-16 items-start place-items-center place-content-center ">
+        <div className="grid lg:grid-cols-2 gap-16 items-start place-items-center place-content-center ">
 
 
 
@@ -99,8 +99,8 @@ export default function ServiceCategories() {
 
           </div>
           {/* Right side - Service cards */}
-          <div className="grid grid-cols-2 gap-8 order-1 md:order-2">
-            <div className='w-[500px] h-[200px] md:h-[500px] rounded-md  overflow-hidden' >
+          <div className=" order-1 md:order-2">
+            <div className='w-[500px] h-[200px] md:h-[500px] rounded-md  overflow-hidden mx-auto ' >
               <Image alt='services' src={company} className='w-full h-full object-cover' />
             </div>
           </div>

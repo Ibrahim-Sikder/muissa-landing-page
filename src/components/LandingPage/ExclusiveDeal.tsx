@@ -4,26 +4,27 @@
 import { useEffect, useState } from 'react'
 import { Box, Typography, Container, Button } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import Link from 'next/link'
+
 const FlipNumber = styled(Box)(({ theme }) => ({
-  background: '#FF0000',
+
   borderRadius: 8,
   padding: '20px 15px',
   minWidth: 100,
   textAlign: 'center',
   boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
   position: 'relative',
-  '&::after': {
-    content: '""',
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: '50%',
-    height: 2,
-    background: 'rgba(0,0,0,0.2)',
+  border: '2px dashed #D4AF37',
+  animation: 'flip 0.6s ease-in-out',
+  '@keyframes flip': {
+    '0%': {
+      transform: 'rotateX(0deg)',
+    },
+    '100%': {
+      transform: 'rotateX(360deg)',
+    },
   },
   [theme.breakpoints.down('sm')]: {
-    padding: '3px 3px',
+    padding: '5px',
     minWidth: 50,
   },
   [theme.breakpoints.down('xs')]: {
@@ -31,7 +32,7 @@ const FlipNumber = styled(Box)(({ theme }) => ({
     minWidth: 40,
   },
   [theme.breakpoints.between('sm', 'md')]: {
-    padding: '5px 5px',
+    padding: '8px 10px',
     minWidth: 85,
   },
   [theme.breakpoints.up('md')]: {
@@ -47,7 +48,7 @@ const NumberDisplay = styled(Typography)({
   fontFamily: "'Digital-7', monospace",
   fontSize: '2rem',
   '@media (max-width: 600px)': {
-    fontSize: '1.5rem',
+    fontSize: '2.2rem',
   },
   '@media (min-width: 900px)': {
     fontSize: '3.5rem',
@@ -60,11 +61,11 @@ const TimeLabel = styled(Typography)({
   fontWeight: 500,
   textTransform: 'uppercase',
   fontSize: '0.75rem',
-  '@media (min-width: 600px)': {
+  '@media (max-width: 600px)': {
     fontSize: '.4rem',
   },
-  '@media (min-width: 900px)': {
-    fontSize: '1rem',
+  '@media (max-width: 900px)': {
+    fontSize: '.9rem',
   }
 })
 
@@ -80,7 +81,14 @@ export default function ExclusiveDeal() {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         const newSeconds = prev.seconds - 1
-        if (newSeconds >= 0) return { ...prev, seconds: newSeconds }
+        if (newSeconds >= 0) {
+          document.querySelectorAll('.flip-number').forEach(el => {
+            el.classList.remove('flip')
+            void (el as HTMLElement).offsetWidth // Trigger reflow
+            el.classList.add('flip')
+          })
+          return { ...prev, seconds: newSeconds }
+        }
 
         const newMinutes = prev.minutes - 1
         if (newMinutes >= 0) return { ...prev, minutes: newMinutes, seconds: 59 }
@@ -145,7 +153,7 @@ export default function ExclusiveDeal() {
           mb: 6,
         }}>
           <Box sx={{ textAlign: 'center', background: 'FF0000' }}>
-            <FlipNumber sx={{ background: 'FF0000' }}>
+            <FlipNumber sx={{ background: 'FF0000' }} className="flip-number">
               <NumberDisplay sx={{ background: 'FF0000' }}>
                 {String(timeLeft.days).padStart(2, '0')}
               </NumberDisplay>
@@ -154,7 +162,7 @@ export default function ExclusiveDeal() {
           </Box>
 
           <Box sx={{ textAlign: 'center' }}>
-            <FlipNumber>
+            <FlipNumber className="flip-number">
               <NumberDisplay>
                 {String(timeLeft.hours).padStart(2, '0')}
               </NumberDisplay>
@@ -163,7 +171,7 @@ export default function ExclusiveDeal() {
           </Box>
 
           <Box sx={{ textAlign: 'center' }}>
-            <FlipNumber>
+            <FlipNumber className="flip-number">
               <NumberDisplay>
                 {String(timeLeft.minutes).padStart(2, '0')}
               </NumberDisplay>
@@ -172,7 +180,7 @@ export default function ExclusiveDeal() {
           </Box>
 
           <Box sx={{ textAlign: 'center' }}>
-            <FlipNumber>
+            <FlipNumber className="flip-number">
               <NumberDisplay>
                 {String(timeLeft.seconds).padStart(2, '0')}
               </NumberDisplay>

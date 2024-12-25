@@ -95,7 +95,7 @@ export default function Testimonials() {
             spaceBetween={30}
             slidesPerView={1}
             navigation
-            // autoplay={{ delay: 5000 }}
+            autoplay={{ delay: 3000 }}
             breakpoints={{
               640: {
                 slidesPerView: 1,
@@ -112,7 +112,7 @@ export default function Testimonials() {
               <SwiperSlide key={index}>
                 <Card
                   sx={{
-                    height: '100%',
+                    height: '250px',
                     background: '#1591a3',
                     color: 'white',
                     boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',

@@ -23,15 +23,13 @@ export default function BusinessSection() {
       <div className="max-w-7xl mx-auto">
 
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid place-items-center justify-items-center lg:grid-cols-2 gap-16 items-start">
 
 
           {/* Right side - Service cards */}
-          <div className="grid grid-cols-2 gap-3  md:gap-8">
-            <div className='w-[500px] h-[200px] md:h-[500px] rounded-md  overflow-hidden' >
+          <div className='w-[500px] h-[200px] md:h-[500px] rounded-md  overflow-hidden' >
               <Image alt='services' src={company} className='w-full h-full object-cover' />
             </div>
-          </div>
           {/* Left side - Features list */}
           <div className="space-y-4">
             <h1 className="text-2xl md:text-5xl font-bold mb-5">

@@ -2,6 +2,7 @@
 
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { Box, Button, Container, Typography } from '@mui/material'
+import Link from 'next/link'
 
 const darkTheme = createTheme({
   palette: {
@@ -23,13 +24,17 @@ export default function NotificationPage() {
     <ThemeProvider theme={darkTheme}>
       <Box
         sx={{
-
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          py: '10vh',
-          margintop: '60px'
+          py: {
+            xs: '5vh', 
+            sm: '7vh',
+            md: '10vh',
+            lg: '12vh',
+          },
         }}
+
       >
         <Container maxWidth="lg">
           <Box
@@ -62,18 +67,29 @@ export default function NotificationPage() {
               মুইসা কনসালটেন্সির সাথে আপনার ব্যবসা  দক্ষতা বৃদ্ধি করুন—আজই যোগ দিন!
             </Typography>
             <Button
-              variant="contained"
+
               color="error"
+              component={Link}
+              href='https://www.muissa.com/membership'
+              variant="contained"
               sx={{
-                px: 3,
-                py: 0.75,
-                fontSize: '1rem',
-                textTransform: 'none',
-                borderRadius: 1,
-                backgroundColor: '#1591A3',
+                backgroundColor: '#fff',
+                color: '#1591A3',
+                padding: {
+                  xs: '8px 16px',
+                  sm: '10px 24px',
+                  md: '12px 32px',
+                },
+                fontSize: {
+                  xs: '14px',
+                  sm: '15px',
+                  md: '16px',
+                },
+                borderRadius: '8px',
                 '&:hover': {
-                  backgroundColor: '#ff2424'
-                }
+                  backgroundColor: '#1591A3',
+                  color: '#fff',
+                },
               }}
             >
               Get Your Membership Today

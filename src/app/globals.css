@@ -32,13 +32,11 @@ body {
   font-size: 16px;
 }
 
-
-
 .sectionMargin {
   margin-top: 50px;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   .sectionMargin {
     margin-top: 20px;
   }

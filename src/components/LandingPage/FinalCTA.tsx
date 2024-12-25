@@ -1,7 +1,8 @@
 'use client'
 
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Button, Container, Typography } from '@mui/material'
+import Link from 'next/link'
 
 const darkTheme = createTheme({
   palette: {
@@ -47,12 +48,50 @@ export default function NotificationPage() {
             </Typography>
 
             <div className="flex flex-wrap gap-2 items-center justify-center">
-              <span className="bg-[#1591A3] text-white px-4 py-1 rounded">
+              <Button
+
+                color="error"
+                component={Link}
+                href='https://www.muissa.com/membership'
+                variant="contained"
+                sx={{
+                  backgroundColor: '#fff',
+
+                  '&:hover': {
+                    backgroundColor: '#1591A3',
+                    color: '#fff'
+                  },
+                  color: '#1591A3',
+                  padding: '12px 32px',
+                  fontSize: '16px',
+                  borderRadius: '8px',
+                }}
+              >
                 GET FREE CONSULTANCY
-              </span>
-              <span className="bg-[#1591A3] text-white px-4 py-1 rounded">
+              </Button>
+              <Button
+
+                color="error"
+                component={Link}
+                href='https://www.muissa.com/membership'
+                variant="contained"
+                sx={{
+                  backgroundColor: '#fff',
+
+                  '&:hover': {
+                    backgroundColor: '#1591A3',
+                    color: '#fff'
+                  },
+                  color: '#1591A3',
+                  padding: '12px 32px',
+                  fontSize: '16px',
+                  borderRadius: '8px',
+                }}
+              >
                 09613-244444
-              </span>
+              </Button>
+
+
             </div>
             <p className="text-center text-white mt-5 ">
               অথবা আমাদের সাথে যোগাযোগ করতে কল করুন ০১৭....।

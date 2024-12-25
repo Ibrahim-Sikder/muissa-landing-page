@@ -1,10 +1,10 @@
 import Benefits from "./Benefits";
+import ExclusiveDeal from "./ExclusiveDeal";
 import FinalCTA from "./FinalCTA";
 import LandingHero from "./LandingHero";
 import ServiceCategories from "./LandingService";
 import OpportunitySection from "./OpportunitySection";
 import Testimonials from "./Testimonial";
-import WhyOurService from "./WhyOurService";
 
 export default function LandingPage() {
   return (
@@ -12,7 +12,7 @@ export default function LandingPage() {
       <main className="container mx-auto px-4">
 
         <LandingHero />
-        <WhyOurService/>
+        <ExclusiveDeal />
         <Benefits />
         <ServiceCategories />
         <OpportunitySection />

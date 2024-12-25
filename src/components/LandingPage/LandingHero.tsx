@@ -39,7 +39,7 @@ export default function TaxTalksLanding() {
 
 
       {slides.map((slide, index) => (
-        <div key={index} className="container mx-auto md:px-4  grid lg:grid-cols-2 gap-8 items-center py-16">
+        <div key={index} className=" mx-auto px-0 md:px-4  grid lg:grid-cols-2 gap-8 items-center py-14 md:py-16">
           <div className="space-y-8">
             {/* Red banner */}
             <div className="relative">
@@ -63,11 +63,13 @@ export default function TaxTalksLanding() {
               href='https://www.muissa.com/membership'
               variant="contained"
               sx={{
-                backgroundColor: '#1591A3',
+                backgroundColor: '#fff',
+
                 '&:hover': {
-                  backgroundColor: 'darkred',
+                  backgroundColor: '#1591A3',
+                  color: '#fff'
                 },
-                color: 'white',
+                color: '#1591A3',
                 padding: '12px 32px',
                 fontSize: '16px',
                 borderRadius: '8px',
@@ -83,7 +85,6 @@ export default function TaxTalksLanding() {
         </div>
       ))}
 
-      {/* <TaxExpertBanner /> */}
     </div>
   )
 }

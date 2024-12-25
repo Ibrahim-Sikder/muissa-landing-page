@@ -3,6 +3,7 @@ import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Toaster } from "sonner";
+import Providers from "@/lib/Theme/Probiders";
 
 
 const hindiSiliguri = Hind_Siliguri({
@@ -31,10 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll="0">
-      <body className={hindiSiliguri.className}>
-        <Toaster position="bottom-right" richColors />
-        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-      </body>
+      <Providers>
+        <body className={hindiSiliguri.className}>
+          <Toaster position="bottom-right" richColors />
+          <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+        </body>
+      </Providers>
     </html>
   );
 }

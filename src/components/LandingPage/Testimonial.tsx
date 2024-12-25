@@ -37,6 +37,20 @@ const testimonials = [
     rating: 5,
     avatar: '/placeholder.svg?height=60&width=60',
   },
+  {
+    name: 'তাহমিনা খান',
+    role: 'মালিক, ক্রিয়েটিভ সলিউশনস',
+    comment: "Muissa এর ফান্ডিং সাপোর্ট এবং ইনভেস্টমেন্ট সাপোর্ট আমাদের স্টার্টআপকে দাঁড়াতে সাহায্য করেছে। তাদের পরামর্শ এবং সমর্থন ছাড়া আমরা এই সফলতা অর্জন করতে পারতাম না। আমি তাদের সেবার প্রতি কৃতজ্ঞ।",
+    rating: 5,
+    avatar: '/placeholder.svg?height=60&width=60',
+  },
+  {
+    name: 'তাহমিনা খান',
+    role: 'মালিক, ক্রিয়েটিভ সলিউশনস',
+    comment: "Muissa এর ফান্ডিং সাপোর্ট এবং ইনভেস্টমেন্ট সাপোর্ট আমাদের স্টার্টআপকে দাঁড়াতে সাহায্য করেছে। তাদের পরামর্শ এবং সমর্থন ছাড়া আমরা এই সফলতা অর্জন করতে পারতাম না। আমি তাদের সেবার প্রতি কৃতজ্ঞ।",
+    rating: 5,
+    avatar: '/placeholder.svg?height=60&width=60',
+  },
 ]
 
 export default function Testimonials() {
@@ -49,8 +63,8 @@ export default function Testimonials() {
   return (
     <div className=''>
       <Box py={{
-        xs: 2, 
-        sm: 3, 
+        xs: 2,
+        sm: 3,
         md: 5,
         lg: 7,
       }}
@@ -81,7 +95,7 @@ export default function Testimonials() {
             spaceBetween={30}
             slidesPerView={1}
             navigation
-            autoplay={{ delay: 5000 }}
+            // autoplay={{ delay: 5000 }}
             breakpoints={{
               640: {
                 slidesPerView: 1,

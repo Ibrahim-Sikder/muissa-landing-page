@@ -86,9 +86,33 @@ export default function NotificationPage() {
                   md: '16px',
                 },
                 borderRadius: '8px',
-                '&:hover': {
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'color 0.5s ease-in-out',
+                zIndex: 1,
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  width: 0,
+                  height: 0,
                   backgroundColor: '#1591A3',
+                  transform: 'translate(-50%, -50%)',
+                  borderRadius: '50%',
+                  transition: 'width 0.5s ease-out, height 0.5s ease-out',
+                  zIndex: -1,
+                },
+                '&:hover': {
                   color: '#fff',
+                  '&::before': {
+                    width: '300%',
+                    height: '300%',
+                  },
+                },
+                '&:active': {
+                  transform: 'scale(0.98)',
+                  transition: 'transform 0.1s',
                 },
               }}
             >

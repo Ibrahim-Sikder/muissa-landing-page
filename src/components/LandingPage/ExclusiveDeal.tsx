@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { Box, Typography, Container, Button } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import Link from 'next/link'
-
 const FlipNumber = styled(Box)(({ theme }) => ({
   background: '#FF0000',
   borderRadius: 8,
@@ -22,22 +21,51 @@ const FlipNumber = styled(Box)(({ theme }) => ({
     top: '50%',
     height: 2,
     background: 'rgba(0,0,0,0.2)',
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '3px 3px',
+    minWidth: 50,
+  },
+  [theme.breakpoints.down('xs')]: {
+    padding: '3px 3px',
+    minWidth: 40,
+  },
+  [theme.breakpoints.between('sm', 'md')]: {
+    padding: '5px 5px',
+    minWidth: 85,
+  },
+  [theme.breakpoints.up('md')]: {
+    padding: '20px 15px',
+    minWidth: 100,
   }
 }))
+
+const NumberDisplay = styled(Typography)({
+  color: 'white',
+  fontWeight: 700,
+  lineHeight: 1,
+  fontFamily: "'Digital-7', monospace",
+  fontSize: '2rem',
+  '@media (max-width: 600px)': {
+    fontSize: '1.5rem',
+  },
+  '@media (min-width: 900px)': {
+    fontSize: '3.5rem',
+  }
+})
 
 const TimeLabel = styled(Typography)({
   color: '#D4AF37',
   marginTop: 8,
   fontWeight: 500,
   textTransform: 'uppercase',
-})
-
-const NumberDisplay = styled(Typography)({
-  color: 'white',
-  fontSize: '3.5rem',
-  fontWeight: 700,
-  lineHeight: 1,
-  fontFamily: "'Digital-7', monospace",
+  fontSize: '0.75rem',
+  '@media (min-width: 600px)': {
+    fontSize: '.4rem',
+  },
+  '@media (min-width: 900px)': {
+    fontSize: '1rem',
+  }
 })
 
 export default function ExclusiveDeal() {
@@ -96,23 +124,25 @@ export default function ExclusiveDeal() {
             fontWeight: 700,
             letterSpacing: 2,
             fontSize: {
-              xs: '1.5rem',
-              sm: '2rem',   // Medium devices (tablets)
-              md: '3rem',   // Large devices (desktops)
-              lg: '4rem',   // Extra large devices
+              xs: '1.2rem',
+              sm: '2rem',
+              md: '3rem',
+              lg: '4rem',
             },
           }}
         >
-          Exclusive Deals Available Until!
+          ফ্রি ওয়েবিনার বুক করুন।
         </Typography>
-
 
         <Box sx={{
           display: 'flex',
           justifyContent: 'center',
-          gap: 3,
+          gap: {
+            md: 3,
+            sm: 2,
+            xs: 1
+          },
           mb: 6,
-          flexWrap: 'wrap',
         }}>
           <Box sx={{ textAlign: 'center', background: 'FF0000' }}>
             <FlipNumber sx={{ background: 'FF0000' }}>
@@ -160,8 +190,6 @@ export default function ExclusiveDeal() {
           }}
         >
           <Button
-            component={Link}
-            href="https://www.muissa.com/membership"
             variant="contained"
             sx={{
               backgroundColor: '#fff',
@@ -177,13 +205,37 @@ export default function ExclusiveDeal() {
                 md: '16px',
               },
               borderRadius: '8px',
-              '&:hover': {
+              position: 'relative',
+              overflow: 'hidden',
+              transition: 'color 0.5s ease-in-out',
+              zIndex: 1,
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: 0,
+                height: 0,
                 backgroundColor: '#1591A3',
+                transform: 'translate(-50%, -50%)',
+                borderRadius: '50%',
+                transition: 'width 0.5s ease-out, height 0.5s ease-out',
+                zIndex: -1,
+              },
+              '&:hover': {
                 color: '#fff',
+                '&::before': {
+                  width: '300%',
+                  height: '300%',
+                },
+              },
+              '&:active': {
+                transform: 'scale(0.98)',
+                transition: 'transform 0.1s',
               },
             }}
           >
-            Get Membership Today
+            ওয়েবিনার বুক করুন
           </Button>
 
         </Typography>

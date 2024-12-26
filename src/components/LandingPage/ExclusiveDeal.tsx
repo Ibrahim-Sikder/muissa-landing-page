@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -136,7 +135,7 @@ export default function ExclusiveDeal() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      py: 4,
+      py: { xs: 2, sm: 4, md: 6 },  // Adjust padding for responsiveness
       marginTop: {
         md: '50px',
         sm: '30px',
@@ -144,12 +143,12 @@ export default function ExclusiveDeal() {
       }
     }}>
       <Container maxWidth="lg">
-        <Box display='flex' justifyContent='space-between' alignItems='center'>
-          <motion.div variants={imageAnimation} initial="initial" animate="animate">
-            <Image alt="services" src={company} className="w-full h-full object-cover" />
+        <Box display='flex' gap={5} flexDirection={{ xs: 'column', sm: 'row' }} justifyContent='space-between' alignItems='center'>
+          <motion.div variants={imageAnimation} initial="initial" animate="animate" style={{ width: '100%' }}>
+            <Image alt="services" src={company} className="w-full h-full object-cover" layout="responsive" />
           </motion.div>
 
-          <Box>
+          <Box sx={{ textAlign: 'center' }}>
             <motion.div variants={titleAnimation} initial="initial" animate="animate">
               <Typography
                 variant="h2"
@@ -171,10 +170,12 @@ export default function ExclusiveDeal() {
               justifyContent: 'center',
               gap: { md: 3, sm: 2, xs: 1 },
               mb: { md: 6, sm: 3, xs: 2 },
+             
+              alignItems: 'center',
             }}>
               <Box sx={{ textAlign: 'center', background: 'FF0000' }}>
-                <FlipNumber sx={{ background: 'FF0000' }} className="flip-number">
-                  <NumberDisplay sx={{ background: 'FF0000' }}>
+                <FlipNumber className="flip-number">
+                  <NumberDisplay>
                     {String(timeLeft.days).padStart(2, '0')}
                   </NumberDisplay>
                 </FlipNumber>

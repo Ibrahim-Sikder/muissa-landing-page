@@ -7,25 +7,50 @@ import ListItemText from '@mui/material/ListItemText';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Image from 'next/image';
 import company from '../../../src/assets/invest/ivestment4.jpg'
+import { motion } from 'framer-motion';
+
 export default function BusinessSection() {
 
 
+  const imageAnimation = {
+    initial: { opacity: 0, x: -100 }, 
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
+  };
+
+  const contentAnimation = {
+    initial: { opacity: 0, x: 100 },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
+  };
+
   return (
-    <div className="sectionMargin  text-white py-8 md:px-4 relative overflow-hidden">
-
-
+    <div className="sectionMargin text-white py-8 md:px-4 relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto">
-
-
         <div className="grid place-items-center justify-items-center lg:grid-cols-2 gap-16 items-start">
 
+          <motion.div
+            className="md:w-[500px] h-[200px] md:h-[500px] rounded-md overflow-hidden"
+            variants={imageAnimation}
+            initial="initial"
+            animate="animate"
+          >
+            <Image alt="services" src={company} className="w-full h-full object-cover" />
+          </motion.div>
 
-          {/* Right side - Service cards */}
-          <div className='md:w-[500px] h-[200px] md:h-[500px] rounded-md  overflow-hidden' >
-            <Image alt='services' src={company} className='w-full h-full object-cover' />
-          </div>
-          {/* Left side - Features list */}
-          <div className="space-y-4">
+
+          <motion.div
+            className="space-y-4"
+            variants={contentAnimation}
+            initial="initial"
+            animate="animate"
+          >
             <h1 className="text-2xl md:text-5xl font-bold mb-5">
               About Our Business
             </h1>
@@ -38,10 +63,10 @@ export default function BusinessSection() {
                 <ListItemText
                   primaryTypographyProps={{
                     className: 'responsive-text',
-                  color:'white'}}
+                    color: 'white',
+                  }}
                   primary="Customizable funding strategies tailored to your business needs."
                 />
-
               </ListItem>
               <ListItem>
                 <ListItemIcon sx={{ color: 'white' }}>
@@ -79,17 +104,14 @@ export default function BusinessSection() {
                   primary="In-depth market analysis to identify and secure potential funding opportunities."
                 />
               </ListItem>
-
-
             </List>
 
-            <p>ব্যবসায়ের জরুরি ফান্ড তৈরির পরামর্শ থেকে শুরু করে প্রতিষ্ঠানের কাগজপত্র প্রস্তুত, ফান্ডিং প্রোপোজাল ও শক্তিশালী বক্তব্য তৈরিতে সহায়তা প্রদান; মার্কেট অ্যানালাইসিসের মাধ্যমে বাজার তৈরি, প্রতিষ্ঠানের অ্যানালাইসিস ও মনিটরিং রিপোর্ট প্রস্তুত, এবং কার্যপদ্ধতি নির্ধারণে পরামর্শ প্রদানের মাধ্যমে আমরা ব্যবসায়িক সমাধানে নির্ভরযোগ্য সেবা প্রদান করি।</p>
-
-
-
-          </div>
+            <p>
+              ব্যবসায়ের জরুরি ফান্ড তৈরির পরামর্শ থেকে শুরু করে প্রতিষ্ঠানের কাগজপত্র প্রস্তুত, ফান্ডিং প্রোপোজাল ও শক্তিশালী বক্তব্য তৈরিতে সহায়তা প্রদান; মার্কেট অ্যানালাইসিসের মাধ্যমে বাজার তৈরি, প্রতিষ্ঠানের অ্যানালাইসিস ও মনিটরিং রিপোর্ট প্রস্তুত, এবং কার্যপদ্ধতি নির্ধারণে পরামর্শ প্রদানের মাধ্যমে আমরা ব্যবসায়িক সমাধানে নির্ভরযোগ্য সেবা প্রদান করি।
+            </p>
+          </motion.div>
         </div>
       </div>
     </div>
-  )
+  );
 }

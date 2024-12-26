@@ -62,6 +62,7 @@ export default function TaxTalksLanding() {
               component={Link}
               href='https://www.muissa.com/membership'
               variant="contained"
+
               sx={{
                 backgroundColor: '#fff',
                 color: '#1591A3',
@@ -70,16 +71,20 @@ export default function TaxTalksLanding() {
                   sm: '10px 24px',
                   md: '12px 32px',
                 },
+                fontWeight: 'bold',
                 fontSize: {
-                  xs: '14px',
-                  sm: '15px',
-                  md: '16px',
+                  xs: '18px',
+                  sm: '18px',
+                  md: '20px',
                 },
                 borderRadius: '8px',
+                borderBottom: '6px solid #1591A3',
                 position: 'relative',
                 overflow: 'hidden',
-                transition: 'color 0.5s ease-in-out',
+                transition: 'all 0.3s ease-in-out',
                 zIndex: 1,
+
+
                 '&::before': {
                   content: '""',
                   position: 'absolute',
@@ -93,13 +98,22 @@ export default function TaxTalksLanding() {
                 },
                 '&:hover': {
                   color: '#fff',
+                  transform: 'translateY(-2px)',
+                  borderBottom: '5px solid #fff',
                   '&::before': {
                     left: 0,
                   },
                 },
                 '&:active': {
-                  transform: 'scale(0.98)',
-                  transition: 'transform 0.1s',
+                  transform: 'scale(0.98) translateY(0)',
+                  boxShadow: `
+                    0 1px 2px rgba(255, 255, 255, 0.1),
+                    0 2px 4px rgba(255, 255, 255, 0.1),
+                    0 4px 8px rgba(255, 255, 255, 0.1),
+                    0 8px 16px rgba(255, 255, 255, 0.1),
+                    0 16px 32px rgba(255, 255, 255, 0.1)
+                  `,
+                  transition: 'all 0.1s',
                 },
               }}
             >

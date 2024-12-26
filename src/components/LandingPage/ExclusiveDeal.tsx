@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react'
 import { Box, Typography, Container, Button } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import MuissaButton from './Button'
 
 const FlipNumber = styled(Box)(({ theme }) => ({
 
@@ -84,7 +85,7 @@ export default function ExclusiveDeal() {
         if (newSeconds >= 0) {
           document.querySelectorAll('.flip-number').forEach(el => {
             el.classList.remove('flip')
-            void (el as HTMLElement).offsetWidth 
+            void (el as HTMLElement).offsetWidth
             el.classList.add('flip')
           })
           return { ...prev, seconds: newSeconds }
@@ -128,7 +129,11 @@ export default function ExclusiveDeal() {
           align="center"
           sx={{
             color: 'white',
-            mb: 6,
+            mb: {
+              md: 6,
+              sm: 3,
+              xs: 3
+            },
             fontWeight: 700,
             letterSpacing: 2,
             fontSize: {
@@ -150,7 +155,11 @@ export default function ExclusiveDeal() {
             sm: 2,
             xs: 1
           },
-          mb: 6,
+          mb: {
+            md: 6,
+            sm: 3,
+            xs: 2
+          },
         }}>
           <Box sx={{ textAlign: 'center', background: 'FF0000' }}>
             <FlipNumber sx={{ background: 'FF0000' }} className="flip-number">
@@ -197,54 +206,8 @@ export default function ExclusiveDeal() {
             fontWeight: 500,
           }}
         >
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: '#fff',
-              color: '#1591A3',
-              padding: {
-                xs: '8px 16px',
-                sm: '10px 24px',
-                md: '12px 32px',
-              },
-              fontSize: {
-                xs: '14px',
-                sm: '15px',
-                md: '16px',
-              },
-              borderRadius: '8px',
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'color 0.5s ease-in-out',
-              zIndex: 1,
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: 0,
-                height: 0,
-                backgroundColor: '#1591A3',
-                transform: 'translate(-50%, -50%)',
-                borderRadius: '50%',
-                transition: 'width 0.5s ease-out, height 0.5s ease-out',
-                zIndex: -1,
-              },
-              '&:hover': {
-                color: '#fff',
-                '&::before': {
-                  width: '300%',
-                  height: '300%',
-                },
-              },
-              '&:active': {
-                transform: 'scale(0.98)',
-                transition: 'transform 0.1s',
-              },
-            }}
-          >
-            ওয়েবিনার বুক করুন
-          </Button>
+
+          <MuissaButton />
 
         </Typography>
       </Container>

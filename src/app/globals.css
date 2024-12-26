@@ -41,3 +41,9 @@ body {
     margin-top: 20px;
   }
 }
+.responsive-text {
+  color: white;
+  font-size: clamp(14px, 2vw, 16px);
+  word-wrap: break-word;
+  line-height: 1.5;
+}

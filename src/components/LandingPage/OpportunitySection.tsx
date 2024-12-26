@@ -28,7 +28,7 @@ export default function NotificationPage() {
           alignItems: 'center',
           justifyContent: 'center',
           py: {
-            xs: '5vh', 
+            xs: '5vh',
             sm: '5vh',
             md: '5vh',
             lg: '5vh',
@@ -74,16 +74,19 @@ export default function NotificationPage() {
               variant="contained"
               sx={{
                 backgroundColor: '#fff',
-                color: '#1591A3',
+                color: '#00305C',
+                borderBottom: '5px solid #1591A3',
                 padding: {
-                  xs: '8px 16px',
+                  xs: '8px 6px',
                   sm: '10px 24px',
                   md: '12px 32px',
                 },
+
+                fontWeight: '900',
                 fontSize: {
-                  xs: '14px',
-                  sm: '15px',
-                  md: '16px',
+                  xs: '17px',
+                  sm: '18px',
+                  md: '20px',
                 },
                 borderRadius: '8px',
                 position: 'relative',
@@ -105,9 +108,12 @@ export default function NotificationPage() {
                 },
                 '&:hover': {
                   color: '#fff',
+                  background: '#1591A3',
+                  borderBottom: '5px solid #fff',
                   '&::before': {
                     width: '300%',
                     height: '300%',
+
                   },
                 },
                 '&:active': {

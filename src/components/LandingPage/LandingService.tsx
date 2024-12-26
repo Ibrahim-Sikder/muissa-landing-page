@@ -100,7 +100,7 @@ export default function ServiceCategories() {
           </div>
           {/* Right side - Service cards */}
           <div className=" order-1 md:order-2">
-            <div className='w-[500px] h-[200px] md:h-[500px] rounded-md  overflow-hidden mx-auto ' >
+            <div className='md:w-[500px] h-[200px] md:h-[500px] rounded-md  overflow-hidden mx-auto ' >
               <Image alt='services' src={company} className='w-full h-full object-cover' />
             </div>
           </div>

@@ -32,8 +32,8 @@ export default function MuissaButton() {
 
   return (
     <motion.button
-      className={`relative overflow-hidden bg-white text-[#00305C] font-black text-lg sm:text-xl md:text-2xl px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg border-b-[5px] transition-colors duration-500 ease-in-out z-10 ${
-        isHovered ? 'border-white' : 'border-[#00305C]'
+      className={`relative overflow-hidden border-b-[5px] text-lg sm:text-xl md:text-2xl px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg transition-colors duration-500 ease-in-out z-10 ${
+        isHovered ? 'bg-white text-[#00305C] border-[#00305C]' : 'bg-[#00305C] text-white border-white'
       }`}
       style={{
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -49,18 +49,19 @@ export default function MuissaButton() {
       }}
       onHoverEnd={() => {
         setIsHovered(false)
+        setIsAnimating(false)
+        controls.stop()
       }}
       onTapStart={startAnimation}
     >
-      <span className="relative z-10 transition-colors duration-500" style={{ color: isAnimating ? '#fff' : '#00305C' }}>
+      <span className="relative z-10 transition-colors duration-500">
         ওয়েবিনার বুক করুন
       </span>
       <motion.div
-        className="absolute inset-0 bg-[#00305C] rounded-full"
+        className="absolute inset-0 bg-white rounded-lg"
         initial={{ scale: 0 }}
-        animate={isAnimating ? { scale: 3 } : { scale: 0 }}
-        transition={{ duration: 0.5 }}
-        style={{ originY: 0 }}
+        animate={isHovered ? { scale: 1 } : { scale: 0 }}
+        transition={{ duration: 0.3 }}
       />
     </motion.button>
   )

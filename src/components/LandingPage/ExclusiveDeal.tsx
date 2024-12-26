@@ -2,12 +2,14 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Box, Typography, Container, Button } from '@mui/material'
+import { Box, Typography, Container } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import MuissaButton from './Button'
+import company from '../../../src/assets/invest/discount.png'
+import Image from 'next/image'
+import { motion } from 'framer-motion';
 
 const FlipNumber = styled(Box)(({ theme }) => ({
-
   borderRadius: 8,
   padding: '20px 15px',
   minWidth: 100,
@@ -42,7 +44,7 @@ const FlipNumber = styled(Box)(({ theme }) => ({
   }
 }))
 
-const NumberDisplay = styled(Typography)({
+const NumberDisplay = styled(Typography)(({
   color: 'white',
   fontWeight: 700,
   lineHeight: 1,
@@ -54,9 +56,9 @@ const NumberDisplay = styled(Typography)({
   '@media (min-width: 900px)': {
     fontSize: '3.5rem',
   }
-})
+}))
 
-const TimeLabel = styled(Typography)({
+const TimeLabel = styled(Typography)(({
   color: '#D4AF37',
   marginTop: 8,
   fontWeight: 500,
@@ -68,7 +70,7 @@ const TimeLabel = styled(Typography)({
   '@media (max-width: 900px)': {
     fontSize: '.9rem',
   }
-})
+}))
 
 export default function ExclusiveDeal() {
   const [timeLeft, setTimeLeft] = useState({
@@ -108,9 +110,27 @@ export default function ExclusiveDeal() {
     return () => clearInterval(timer)
   }, [])
 
+  const imageAnimation = {
+    initial: { opacity: 0, x: -100 },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
+  }
+
+  const titleAnimation = {
+    initial: { opacity: 0, scale: 0.8, x: -100 },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
+  }
+
   return (
     <Box sx={{
-
       backgroundColor: '#1591A3',
       display: 'flex',
       flexDirection: 'column',
@@ -124,94 +144,81 @@ export default function ExclusiveDeal() {
       }
     }}>
       <Container maxWidth="lg">
-        <Typography
-          variant="h2"
-          align="center"
-          sx={{
-            color: 'white',
-            mb: {
-              md: 6,
-              sm: 3,
-              xs: 3
-            },
-            fontWeight: 700,
-            letterSpacing: 2,
-            fontSize: {
-              xs: '1.2rem',
-              sm: '2rem',
-              md: '3rem',
-              lg: '4rem',
-            },
-          }}
-        >
-          ফ্রি ওয়েবিনার বুক করুন।
-        </Typography>
+        <Box display='flex' justifyContent='space-between' alignItems='center'>
+          <motion.div variants={imageAnimation} initial="initial" animate="animate">
+            <Image alt="services" src={company} className="w-full h-full object-cover" />
+          </motion.div>
 
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: {
-            md: 3,
-            sm: 2,
-            xs: 1
-          },
-          mb: {
-            md: 6,
-            sm: 3,
-            xs: 2
-          },
-        }}>
-          <Box sx={{ textAlign: 'center', background: 'FF0000' }}>
-            <FlipNumber sx={{ background: 'FF0000' }} className="flip-number">
-              <NumberDisplay sx={{ background: 'FF0000' }}>
-                {String(timeLeft.days).padStart(2, '0')}
-              </NumberDisplay>
-            </FlipNumber>
-            <TimeLabel sx={{ color: 'white' }}>Days</TimeLabel>
-          </Box>
+          <Box>
+            <motion.div variants={titleAnimation} initial="initial" animate="animate">
+              <Typography
+                variant="h2"
+                align="center"
+                sx={{
+                  color: 'white',
+                  mb: { md: 6, sm: 3, xs: 3 },
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                  fontSize: { xs: '1.2rem', sm: '2rem', md: '3rem', lg: '3rem' },
+                }}
+              >
+                ফ্রি ওয়েবিনার বুক করুন।
+              </Typography>
+            </motion.div>
 
-          <Box sx={{ textAlign: 'center' }}>
-            <FlipNumber className="flip-number">
-              <NumberDisplay>
-                {String(timeLeft.hours).padStart(2, '0')}
-              </NumberDisplay>
-            </FlipNumber>
-            <TimeLabel sx={{ color: 'white' }}>Hours</TimeLabel>
-          </Box>
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: { md: 3, sm: 2, xs: 1 },
+              mb: { md: 6, sm: 3, xs: 2 },
+            }}>
+              <Box sx={{ textAlign: 'center', background: 'FF0000' }}>
+                <FlipNumber sx={{ background: 'FF0000' }} className="flip-number">
+                  <NumberDisplay sx={{ background: 'FF0000' }}>
+                    {String(timeLeft.days).padStart(2, '0')}
+                  </NumberDisplay>
+                </FlipNumber>
+                <TimeLabel sx={{ color: 'white' }}>Days</TimeLabel>
+              </Box>
 
-          <Box sx={{ textAlign: 'center' }}>
-            <FlipNumber className="flip-number">
-              <NumberDisplay>
-                {String(timeLeft.minutes).padStart(2, '0')}
-              </NumberDisplay>
-            </FlipNumber>
-            <TimeLabel sx={{ color: 'white' }}>Minutes</TimeLabel>
-          </Box>
+              <Box sx={{ textAlign: 'center' }}>
+                <FlipNumber className="flip-number">
+                  <NumberDisplay>
+                    {String(timeLeft.hours).padStart(2, '0')}
+                  </NumberDisplay>
+                </FlipNumber>
+                <TimeLabel sx={{ color: 'white' }}>Hours</TimeLabel>
+              </Box>
 
-          <Box sx={{ textAlign: 'center' }}>
-            <FlipNumber className="flip-number">
-              <NumberDisplay>
-                {String(timeLeft.seconds).padStart(2, '0')}
-              </NumberDisplay>
-            </FlipNumber>
-            <TimeLabel sx={{ color: 'white' }}>Seconds</TimeLabel>
+              <Box sx={{ textAlign: 'center' }}>
+                <FlipNumber className="flip-number">
+                  <NumberDisplay>
+                    {String(timeLeft.minutes).padStart(2, '0')}
+                  </NumberDisplay>
+                </FlipNumber>
+                <TimeLabel sx={{ color: 'white' }}>Minutes</TimeLabel>
+              </Box>
+
+              <Box sx={{ textAlign: 'center' }}>
+                <FlipNumber className="flip-number">
+                  <NumberDisplay>
+                    {String(timeLeft.seconds).padStart(2, '0')}
+                  </NumberDisplay>
+                </FlipNumber>
+                <TimeLabel sx={{ color: 'white' }}>Seconds</TimeLabel>
+              </Box>
+            </Box>
+
+            <Typography align="center" sx={{
+              color: '#D4AF37',
+              letterSpacing: 1,
+              fontWeight: 500,
+            }}>
+              <MuissaButton />
+            </Typography>
           </Box>
         </Box>
-
-        <Typography
-          align="center"
-          sx={{
-            color: '#D4AF37',
-            letterSpacing: 1,
-            fontWeight: 500,
-          }}
-        >
-
-          <MuissaButton />
-
-        </Typography>
       </Container>
     </Box>
   )
 }
-

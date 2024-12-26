@@ -9,8 +9,7 @@ import Avatar from '@mui/material/Avatar'
 import Rating from '@mui/material/Rating'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Autoplay } from 'swiper/modules'
-
-// Import Swiper styles
+import { motion } from 'framer-motion'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
@@ -60,6 +59,13 @@ export default function Testimonials() {
     setDomLoaded(true)
   }, [])
 
+
+  const titleAnimation = {
+    initial: { opacity: 0, scale: 0.8 },
+    whileInView: { opacity: 1, scale: 1 },
+    transition: { duration: 1.5, ease: [0.42, 0, 0.58, 1] }, 
+  }
+
   return (
     <div className=''>
       <Box py={{
@@ -69,25 +75,32 @@ export default function Testimonials() {
         lg: 7,
       }}
       >
-        <Typography
-          variant="h4"
-          component="h2"
-          textAlign="center"
-          gutterBottom
-          fontWeight="bold"
-          sx={{
-            color: 'white',
-            mb: 4,
-            fontSize: {
-              xs: '1.3rem',
-              sm: '2rem',
-              md: '3rem',
-              lg: '3.5rem',
-            },
-          }}
+        <motion.div
+          variants={titleAnimation}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }} 
         >
-          আমাদের গ্রাহকদের মতামত
-        </Typography>
+          <Typography
+            variant="h4"
+            component="h2"
+            textAlign="center"
+            gutterBottom
+            fontWeight="bold"
+            sx={{
+              color: 'white',
+              mb: 4,
+              fontSize: {
+                xs: '1.3rem',
+                sm: '2rem',
+                md: '3rem',
+                lg: '3.5rem',
+              },
+            }}
+          >
+            আমাদের গ্রাহকদের মতামত
+          </Typography>
+        </motion.div>
 
         {domLoaded && (
           <Swiper

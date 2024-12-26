@@ -11,23 +11,18 @@ import { motion } from 'framer-motion';
 
 export default function BusinessSection() {
 
-
+  // Image Animation with smooth transition
   const imageAnimation = {
     initial: { opacity: 0, x: -100 }, 
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 1, ease: 'easeOut' },
-    },
+    whileInView: { opacity: 1, x: 0 }, 
+    transition: { duration: 1.5, ease: [0.42, 0, 0.58, 1] }, // Bezier easing for smooth effect
   };
 
+  // Content Animation with smooth transition
   const contentAnimation = {
     initial: { opacity: 0, x: 100 },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 1, ease: 'easeOut' },
-    },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 1.5, ease: [0.42, 0, 0.58, 1] }, // Bezier easing for smooth effect
   };
 
   return (
@@ -35,21 +30,24 @@ export default function BusinessSection() {
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid place-items-center justify-items-center lg:grid-cols-2 gap-16 items-start">
 
+          {/* Image Animation */}
           <motion.div
             className="md:w-[500px] h-[200px] md:h-[500px] rounded-md overflow-hidden"
             variants={imageAnimation}
             initial="initial"
-            animate="animate"
+            whileInView="whileInView" // Trigger when in view
+            viewport={{ once: true }}  // Trigger only once when entering the viewport
           >
             <Image alt="services" src={company} className="w-full h-full object-cover" />
           </motion.div>
 
-
+          {/* Content Animation */}
           <motion.div
             className="space-y-4"
             variants={contentAnimation}
             initial="initial"
-            animate="animate"
+            whileInView="whileInView"
+            viewport={{ once: true }}
           >
             <h1 className="text-2xl md:text-5xl font-bold mb-5">
               About Our Business

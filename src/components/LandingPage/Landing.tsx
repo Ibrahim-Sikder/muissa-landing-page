@@ -1,6 +1,7 @@
 import Benefits from "./Benefits";
 import ExclusiveDeal from "./ExclusiveDeal";
 import FinalCTA from "./FinalCTA";
+import Footer from "./Footer";
 import LandingHero from "./LandingHero";
 import ServiceCategories from "./LandingService";
 import OpportunitySection from "./OpportunitySection";
@@ -18,6 +19,7 @@ export default function LandingPage() {
         <OpportunitySection />
         <Testimonials />
         <FinalCTA />
+        <Footer />
       </main>
 
     </div>

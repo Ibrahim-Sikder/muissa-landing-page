@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" data-scroll="0">
       <Providers>
         <body className={hindiSiliguri.className}>
-          <Toaster position="bottom-right" richColors />
+          <Toaster position="top-center" richColors />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
         </body>
       </Providers>
